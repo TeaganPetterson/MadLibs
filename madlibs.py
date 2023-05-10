@@ -25,6 +25,11 @@ AWESOMENESS = [
     "lovely",
 ]
 
+FILES = [
+    "madlib.html",
+    "madlib2.html",
+    "madlib3.html"
+]
 
 @app.route("/")
 def start_here():
@@ -46,10 +51,6 @@ def greet_person():
 
     player = request.args.get("person")
     compliment = choice(AWESOMENESS)
-    # playAGame = request.args.get("playAGame")
-
-    # if playAGame == "y": 
-    #     return render_template("game.html")
 
     return render_template("compliment.html", person=player, compliment=compliment)
 
@@ -59,25 +60,34 @@ def show_madlib_form():
 
     playAGame = request.args.get("playAGame")
 
-    if playAGame == "Yes": 
-        return render_template("game.html")
-    else:
+    if playAGame == "No": 
         return render_template("goodbye.html")
+    else:
+        return render_template("game.html")
 
 @app.route("/madlib")
 def show_madlib():
-
-    # color = 
-    # noun = 
-    # person = 
-    # adjective = 
+    choiceSite = choice(FILES)
     return render_template(
-        "madlib.html", 
-        color = request.args.get("color"), 
-        noun = request.args.get("noun"), 
-        person = request.args.get("person"), 
-        adjective = request.args.get("adjective")
-)
+        choiceSite, 
+        one = request.args.get("1"), 
+        two = request.args.get("2"), 
+        three = request.args.get("3"), 
+        four = request.args.get("4"),
+        five = request.args.get("5"), 
+        six = request.args.get("6"),
+        seven = request.args.get("7"),
+        eight = request.args.get("8"),
+        nine = request.args.get("9"),
+        ten = request.args.get("10"),
+        eleven = request.args.get("11"),
+        twelve = request.args.get("12"),
+        thirteen = request.args.get("13"),
+        fourteen = request.args.get("14"),
+        fifteen = request.args.get("15"),
+        sixteen = request.args.get("16"),
+        seventeen = request.args.get("17")
+        )
 
 if __name__ == "__main__":
     # Setting debug=True gives us error messages in the browser and also
